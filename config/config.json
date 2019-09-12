@@ -1,8 +1,8 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "exampledb",
+    "username": "username",
+    "password": "password",
+    "database": "toolboxdb",
     "host": "localhost",
     "dialect": "mysql"
   },
