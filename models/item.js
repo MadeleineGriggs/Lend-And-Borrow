@@ -12,8 +12,12 @@ module.exports = function(sequelize, DataTypes) {
             type: DataTypes.STRING,
             allowNull: false
         },
-        reservation: {
-            type: DataTypes.ARRAY(DataTypes.STRING)
+        // reservation: {
+        //     type: DataTypes.ARRAY(DataTypes.STRING)
+        // }
+        available: {
+            type: DataTypes.BOOLEAN,
+            defaultValue: true
         }
 
     });

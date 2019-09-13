@@ -16,10 +16,10 @@ module.exports = function(sequelize, DataTypes) {
         password: {
             type: DataTypes.STRING,
             allowNull: false
-        },
-        borrowing: {
-            type: DataTypes.ARRAY(DataTypes.STRING)
         }
+        // borrowing: {
+        //     type: DataTypes.ARRAY(DataTypes.STRING)
+        // }
 
     });
 
