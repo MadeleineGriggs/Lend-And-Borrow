@@ -1,5 +1,5 @@
 {
-  "name": "Lend And Borrow",
+  "name": "LendAndBorrow",
   "version": "1.0.0",
   "description": "Lend and Borrow - community lending and borrowing of tools and equipment.",
   "main": "server.js",
