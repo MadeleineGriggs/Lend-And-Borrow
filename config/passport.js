@@ -1,5 +1,5 @@
-var passport = require("passport"); //need to npm intall
-var LocalStrategy = require("passport-local").Strategy; //need to npm install
+var passport = require("passport");
+var LocalStrategy = require("passport-local").Strategy;
 
 var db = require("../models");
 
