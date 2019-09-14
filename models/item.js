@@ -26,9 +26,9 @@ module.exports = function(sequelize, DataTypes) {
     Item.associate = function(models) {
         Item.belongsTo(models.user, {
             foreignKey: {allowNull: false}
+
         });
     };
 
     return Item;
 };
-
