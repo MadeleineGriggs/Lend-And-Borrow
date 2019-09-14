@@ -11,7 +11,6 @@
   },
   "license": "ISC",
   "dependencies": {
-
     "bcryptjs": "^2.4.3",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
@@ -20,7 +19,6 @@
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-
     "sequelize": "^5.18.4"
   },
   "devDependencies": {
