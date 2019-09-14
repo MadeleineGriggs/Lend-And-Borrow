@@ -1,4 +1,4 @@
-var bcrypt = require("bcryptjs"); //need to npm install
+var bcrypt = require("bcryptjs");
 
 module.exports = function(sequelize, DataTypes) {
     var User = sequelize.define("user", {
@@ -32,7 +32,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     User.associate = function(models) {
-        User.hasMany(models.Item);
+        User.hasMany(models.item);
     };
 
     return User;
