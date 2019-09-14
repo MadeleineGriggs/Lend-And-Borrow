@@ -20,6 +20,14 @@ module.exports = function(app) {
         }
     });
 
+    app.get("/dashboard", isAuthenticated, function(req, res) {
+        // if (req.user) {
+        res.render("dashboard");
+        // } else {
+        //     res.render("index");
+        // }
+    });
+
     // Load example page and pass in an example by id
     // app.get("/example/:id", function(req, res) {
     //     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
