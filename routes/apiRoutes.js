@@ -20,13 +20,13 @@ module.exports = function(app) {
         res.json(req.user);
     });
 
-    app.post("/api/signup", function(req, res) {
+    app.post("/", function(req, res) {
         db.User.create({
             username: req.body.username,
             email: req.body.email,
             password: req.body.password
         }).then(function() {
-            res.redirect(307, "/api/login");
+            res.redirect(307, "/dashboard");
         }).catch(function(err) {
             res.status(401).json(err);
         });
