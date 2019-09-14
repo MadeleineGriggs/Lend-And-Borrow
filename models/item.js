@@ -24,10 +24,9 @@ module.exports = function(sequelize, DataTypes) {
 
     Item.associate = function(models) {
         Item.belongsTo(models.User, {
-            foreignKey: {allowNull: false}
+            foreignKey: { allowNull: false }
         });
     };
 
     return Item;
 };
-
