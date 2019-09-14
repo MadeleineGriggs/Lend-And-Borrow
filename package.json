@@ -1,7 +1,7 @@
 {
-  "name": "node-handlebars-boilerplate",
+  "name": "LendAndBorrow",
   "version": "1.0.0",
-  "description": "Project 2 Starter",
+  "description": "Lend and Borrow - community lending and borrowing of tools and equipment.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

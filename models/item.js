@@ -1,3 +1,4 @@
+
 module.exports = function(sequelize, DataTypes) {
     var Item = sequelize.define("item", {
         title: {
@@ -23,7 +24,7 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Item.associate = function(models) {
-        Item.belongsTo(models.User, {
+        Item.belongsTo(models.user, {
             foreignKey: {allowNull: false}
         });
     };
