@@ -1,24 +1,37 @@
 var db = require("../models");
-// var passport = require("../config/passport");
+var passport = require("../config/passport");
 
 module.exports = function(app) {
-    // Get all examples
-    // app.get("/api/examples", function(req, res) {
-    //     db.Example.findAll({}).then(function(dbExamples) {
-    //         res.json(dbExamples);
-    //     });
-    // });
 
-    // Create a new example
-    // app.post("/api/examples", function(req, res) {
-    //     db.Example.create(req.body).then(function(dbExample) {
-    //         res.json(dbExample);
-    //     });
-    // });
+    // Create a new user
+    app.post("/api/signup", function(req, res) {
+        db.User.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password
+        }).then(function(dbUser) {
+            res.json(dbUser);
+        });
+    });
 
-    // app.post("/api/login", passport.authenticate("local"), function(req, res) {
-    //     res.json(req.user);
-    // });
+    app.post("/api/login", passport.authenticate("local"), function(req, res) {
+        res.json(req.user);
+    });
+
+    app.get("/api/user_data", function(req, res) {
+        if (!req.user) {
+        // The user is not logged in, send back an empty object
+            res.json({});
+        } else {
+        // Otherwise send back the user's email and id
+            res.json({
+                username: req.user.username,
+                email: req.user.email,
+                id: req.user.id
+            });
+        }
+    });
+
 
     app.post("/", function(req, res) {
         db.User.create({
@@ -32,12 +45,4 @@ module.exports = function(app) {
         });
 
     });
-
-    // Delete an example by id
-    // app.delete("/api/examples/:id", function(req, res) {
-    //     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-    //         res.json(dbExample);
-    //     });
-    // });
-};
-
+}
