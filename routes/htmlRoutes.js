@@ -1,4 +1,5 @@
 var db = require("../models");
+// var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
     // Load index page
@@ -11,6 +12,10 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/dashboard", function(req, res) {
+        res.render("dashboard");
+    });
+  
     // Load example page and pass in an example by id
     app.get("/example/:id", function(req, res) {
         db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
@@ -19,9 +24,10 @@ module.exports = function(app) {
             });
         });
     });
-
+  
     // Render 404 page for any unmatched routes
     app.get("*", function(req, res) {
         res.render("404");
     });
 };
+  
