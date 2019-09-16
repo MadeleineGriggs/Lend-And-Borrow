@@ -1,35 +1,35 @@
 {
-  "name": "LendAndBorrow",
-  "version": "1.0.0",
-  "description": "Lend and Borrow - community lending and borrowing of tools and equipment.",
-  "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "lint": "eslint --quiet .",
-    "fix": "eslint --fix .",
-    "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
-  },
-  "license": "ISC",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "dotenv": "^8.0.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^3.1.0",
-    "express-session": "^1.16.2",
-    "mysql": "^2.17.1",
-    "mysql2": "^1.6.5",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "sequelize": "^5.18.4"
-  },
-  "devDependencies": {
-    "chai": "^4.2.0",
-    "chai-http": "^4.3.0",
-    "cross-env": "^5.2.0",
-    "eslint": "^5.16.0",
-    "eslint-config-prettier": "^4.3.0",
-    "eslint-plugin-prettier": "^3.1.0",
-    "mocha": "^6.1.4",
-    "prettier": "^1.17.1"
-  }
+    "name": "LendAndBorrow",
+    "version": "1.0.0",
+    "description": "Lend and Borrow - community lending and borrowing of tools and equipment.",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js",
+        "lint": "eslint --quiet .",
+        "fix": "eslint --fix .",
+        "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+    },
+    "license": "ISC",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "dotenv": "^8.0.0",
+        "express": "^4.17.1",
+        "express-handlebars": "^3.1.0",
+        "express-session": "^1.16.2",
+        "mysql": "^2.17.1",
+        "mysql2": "^1.7.0",
+        "passport": "^0.4.0",
+        "passport-local": "^1.0.0",
+        "sequelize": "^5.18.4"
+    },
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "chai-http": "^4.3.0",
+        "cross-env": "^5.2.0",
+        "eslint": "^5.16.0",
+        "eslint-config-prettier": "^4.3.0",
+        "eslint-plugin-prettier": "^3.1.0",
+        "mocha": "^6.1.4",
+        "prettier": "^1.17.1"
+    }
 }
