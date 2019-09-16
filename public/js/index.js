@@ -27,7 +27,7 @@ $(document).ready(function() {
     // Otherwise we log any errors
     function signUpUser(user) {
         $.post("/api/signup", user)
-            .then(function(data) {
+            .then(function() {
                 window.location.replace("/dashboard");
                 console.log("send correctly.");
             // If there's an error, handle it by throwing up a bootstrap alert
