@@ -1,10 +1,10 @@
-          <div id="headerwrap">
-            <div class="container">
-              
-                <div class="row">
-                    <div class="col-lg-8 offset-2">
+     <body>
+     {{{body}}} 
+    <div id="headerwrap">
+      <div class="container">
 
-                      
+                <div class="row">
+                    <div class="col-lg-8 offset-2" id="welcometext">
                         <h1 class="title">Lend &#038; Borrow</h1>
                         <h4 class="text">welcome to the community ToolBox</h4>
                     </div>
@@ -15,10 +15,42 @@
             <!-- /container -->
         </div>
         <!-- /headerwrap -->
-        <div class="img" >
-  <img src="../public/assets/img.jpg" alt="toolbox">
+<div class="col-lg-8 offset-2" id="newitem">
+ <h4>Newly Listed  Items</h4>
   </div>
-    <div id="wrapper" class="clearfix">
+<div class="card-deck">
+  <div class="card">
+    <a href=""> <img src="https://images.pexels.com/photos/2895148/pexels-photo-2895148.jpeg?cs=srgb&dl=analog-photography-analogue-aperture-2895148.jpg&fm=jpg" class="card-img-top" alt="camera"> </a>
+    <div class="card-body">
+      <h5 class="card-title">COSINA Camera</h5>
+      <p class="card-text">High quality camera with availible film.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 3 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+   <a href=""><img src="https://images.pexels.com/photos/2918997/pexels-photo-2918997.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top" alt="audio"></a> 
+    <div class="card-body">
+      <h5 class="card-title">Audio Material</h5>
+      <p class="card-text">Professional audio material.</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 4 mins ago</small>
+    </div>
+  </div>
+  <div class="card">
+    <a href=""></a><img src="https://images.pexels.com/photos/1148963/pexels-photo-1148963.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" class="card-img-top" alt="cloths"><a href=""></a>
+    <div class="card-body">
+      <h5 class="card-title">Sewing Machine</h5>
+      <p class="card-text">Need to sew a project?</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">Last updated 6 mins ago</small>
+    </div>
+  </div>
+</div>
+    {{!-- <div id="wrapper" class="clearfix">
 <div id="home">
   <div class="container">
     <div class="row">
@@ -28,7 +60,7 @@
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
+            <input tygn Ine="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
           </div>
           <div class="form-group">
             <label for="example-description">Example Description</label>
@@ -39,17 +71,17 @@
         <h3>Examples:</h3>
         <ul id="example-list" class="list-group">
           {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
+          <li data-id="{{this.id}}" class="listloginitem">
+            <a 
+utton class="btn btn-danger float-right delete">ｘ</button>
+       <div class="line"></div>
           </li>
           {{/each}}
         </ul>
       </div>
     </div>
   </div>
-</div>
-
+</div>  --}}
 
 {{!-- //modal// --}}
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -62,34 +94,34 @@
         </button>
       </div>
       <div class="modal-body">
-               <h2>Login </h2>
+               <h2>Sign In</h2>
 
         <form class="login">
           <div class="form-group1">
             <label for="usernameLogin">Username</label>
-            <input type="email" class="form-control" id="username-login" placeholder="username">
+            <input type="email" class="form-control" id="username-login" placeholder="username...">
           </div>
-          <div class="form-group">
+          <div class="form-group1">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
+            <input type="password" class="form-control" id="password-input" placeholder="password...">
           </div>
           <button type="submit" class="btn btn-default">Login</button>
         </form>
         <br />
-
-                <h2>Sign Up </h2>
+<div class="line"></div>
+                <h2>New User  </h2>
         <form class="signup">
                    <div class="form-group1">
-            <label for="signupUsername">username</label>
-            <input type="text" class="form-control" id="username-input" placeholder="username">
+            <label for="signupUsername">Username</label>
+            <input type="text" class="form-control" id="username-input" placeholder="username...">
           </div>
           <div class="form-group1">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
+            <label for="exampleInputEmail1">Email Address</label>
+            <input type="email" class="form-control" id="email-input" placeholder="email...">
           </div>
           <div class="form-group1">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
+            <input type="password" class="form-control" id="password-input" placeholder="password...">
           </div>
           <div style="display: none" id="alert" class="alert alert-danger" role="alert">
             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -111,16 +143,16 @@
 
   
       </div>
-      <div class="modal-footer">
+      {{!-- <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      </div> --}}
     </div>
   </div>
 </div>
 
 
-
+</body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
 
