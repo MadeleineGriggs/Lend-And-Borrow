@@ -1,5 +1,6 @@
 var db = require("../models");
 
+// eslint-disable-next-line no-unused-vars
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
