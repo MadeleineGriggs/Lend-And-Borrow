@@ -17,7 +17,7 @@ $(document).ready(function() {
 
         //Need to check if all data is available.
 
-        signUpUser(userData);
+        signUpUser(userData.username, userData.email, userData.password);
         $usernameSignup.val("");
         $emailSignup.val("");
         $passwordSignup.val("");
@@ -25,8 +25,12 @@ $(document).ready(function() {
 
     // Does a post to the signup route. If successful, we are redirected to the dashboard page
     // Otherwise we log any errors
-    function signUpUser(user) {
-        $.post("/api/signup", user)
+    function signUpUser(username, email, password) {
+        $.post("/api/signup", {
+            username: username,
+            email: email,
+            password: password
+        })
             .then(function() {
                 window.location.replace("/dashboard");
                 console.log("send correctly.");

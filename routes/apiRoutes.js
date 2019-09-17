@@ -4,15 +4,15 @@ var passport = require("../config/passport");
 module.exports = function(app) {
 
     // Create a new user
-    app.post("/api/signup", function(req, res) {
-        db.User.create({
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password
-        }).then(function(dbUser) {
-            res.json(dbUser);
-        });
-    });
+    // app.post("/api/signup", function(req, res) {
+    //     db.User.create({
+    //         username: req.body.username,
+    //         email: req.body.email,
+    //         password: req.body.password
+    //     }).then(function(dbUser) {
+    //         res.json(dbUser);
+    //     });
+    // });
 
     app.post("/api/items", function(req, res) {
         db.item.create({
@@ -43,7 +43,7 @@ module.exports = function(app) {
     });
 
 
-    app.post("/", function(req, res) {
+    app.post("/api/signup", function(req, res) {
         db.User.create({
             username: req.body.username,
             email: req.body.email,
