@@ -15,7 +15,7 @@ module.exports = function(app) {
     });
 
     app.post("/api/items", function(req, res) {
-        db.Item.create({
+        db.item.create({
             title: req.body.title,
             body: req.body.body,
             image: req.body.image

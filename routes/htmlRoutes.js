@@ -13,7 +13,7 @@ module.exports = function(app) {
     // });
 
     app.get("/", function(req, res) {
-        db.Item.findAll({
+        db.item.findAll({
             order: [["createdAt", "DESC"]]
 
         }).then(function(dbItems) {
@@ -28,7 +28,7 @@ module.exports = function(app) {
     });
 
     app.get("/dashboard", isAuthenticated, function(req, res) {
-        db.Item.findAll({
+        db.item.findAll({
             where: {UserId: req.user.id},
             order: [["createdAt", "DESC"]]
 
