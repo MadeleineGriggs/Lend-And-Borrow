@@ -12,6 +12,10 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/mainsearch", function(req, res) {
+        res.render("mainsearch");
+    });
+
     app.get("/dashboard", function(req, res) {
         res.render("dashboard");
     });
