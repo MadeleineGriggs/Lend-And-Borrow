@@ -15,7 +15,7 @@ module.exports = function(app) {
     // });
 
     app.get("/", function(req, res) {
-        db.item.findAll({
+        db.Item.findAll({
             order: [["createdAt", "DESC"]]
 
         }).then(function(dbItems) {
@@ -30,7 +30,7 @@ module.exports = function(app) {
     });
 
     app.get("/dashboard", isAuthenticated, function(req, res) {
-        db.item.findAll({
+        db.Item.findAll({
             where: {UserId: req.user.id},
             order: [["createdAt", "DESC"]]
 
@@ -46,18 +46,18 @@ module.exports = function(app) {
     });
   
     // Load example page and pass in an example by id
-    app.get("/example/:id", function(req, res) {
-        db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-            res.render("example", {
-                example: dbExample
-            });
-        } else {
-            res.render("index");
-        }
-    });
+    // app.get("/example/:id", function(req, res) {
+    //     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+    //         res.render("example", {
+    //             example: dbExample
+    //         });
+    //     } else {
+    //         res.render("index");
+    //     }
+    // });
   
 
-    app.get("");
+    // app.get("");
   
     // Render 404 page for any unmatched routes
     app.get("*", function(req, res) {

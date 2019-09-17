@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "username",
+    "username": "root",
     "password": "password",
     "database": "toolboxdb",
     "host": "localhost",
