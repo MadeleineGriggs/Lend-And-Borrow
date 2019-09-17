@@ -1,4 +1,6 @@
 var db = require("../models");
+
+// eslint-disable-next-line no-unused-vars
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
@@ -49,8 +51,13 @@ module.exports = function(app) {
             res.render("example", {
                 example: dbExample
             });
-        });
+        } else {
+            res.render("index");
+        }
     });
+  
+
+    app.get("");
   
     // Render 404 page for any unmatched routes
     app.get("*", function(req, res) {
