@@ -1,18 +1,33 @@
 var db = require("../models");
-// var isAuthenticated = require("../config/middleware/isAuthenticated");
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
     // Load index page
+    // app.get("/", function(req, res) {
+    //     db.Example.findAll({}).then(function(dbExamples) {
+    //         res.render("index", {
+    //             msg: "Welcome!",
+    //             examples: dbExamples
+    //         });
+    //     });
+    // });
+
     app.get("/", function(req, res) {
-        db.Example.findAll({}).then(function(dbExamples) {
-            res.render("index", {
-                msg: "Welcome!",
-                examples: dbExamples
-            });
+        db.Item.findAll({
+            order: [["createdAt", "DESC"]]
+
+        }).then(function(dbItems) {
+            var hbsObject = {
+                items: dbItems
+            };
+    
+            res.render("index", hbsObject);
+
         });
+
     });
 
-    app.get("/dashboard", function(req, res) {
+    app.get("/dashboard", isAuthenticated, function(req, res) {
         res.render("dashboard");
     });
   
