@@ -28,7 +28,19 @@ module.exports = function(app) {
     });
 
     app.get("/dashboard", isAuthenticated, function(req, res) {
-        res.render("dashboard");
+        db.Item.findAll({
+            where: {UserId: req.user.id},
+            order: [["createdAt", "DESC"]]
+
+        }).then(function(dbItems) {
+            var hbsObject = {
+                items: dbItems
+            };
+    
+            res.render("dashboard", hbsObject);
+
+        });
+        
     });
   
     // Load example page and pass in an example by id
