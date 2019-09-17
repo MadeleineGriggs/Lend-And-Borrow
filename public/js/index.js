@@ -10,6 +10,11 @@ $(document).ready(function() {
     var $passwordLogin = $("#password-login");
     var $loginSubmit = $(".login");
 
+    var $newItemTitle = $("#newItemTitle");
+    var $newItemImgLink = $("#newItemImgLink");
+    var $newItemDesc = $("#newItemDesc");
+    var $newItemSubmit = $(".newItem");
+
 
     $signupSubmit.on("submit", function(event) {
         event.preventDefault();
@@ -38,16 +43,46 @@ $(document).ready(function() {
         loginUser(userData);
     });
 
+
+    $newItemSubmit.on("submit", function(event) {
+        event.preventDefault();
+        var itemData = {
+            title: $newItemTitle.val().trim(),
+            body: $newItemDesc.val().trim(),
+            image: $newItemImgLink.val().trim()
+        };
+
+        //Need to check if all data is available.
+
+        addItem(itemData);
+        $newItemTitle.val("");
+        $newItemDesc.val("");
+        $newItemImgLink.val("");
+    });
+
     // Does a post to the signup route. If successful, we are redirected to the dashboard page
     // Otherwise we log any errors
     function signUpUser(user) {
         $.post("/api/signup", user)
             .then(function() {
                 window.location.replace("/dashboard");
-                console.log("send correctly.");
             // If there's an error, handle it by throwing up a bootstrap alert
             })
-            .catch(handleLoginErr);
+            .catch(function(err) {
+                console.log(err);
+            });
+    }
+
+
+    function addItem(item) {
+        $.post("/api/items", item)
+            .then(function() {
+                window.location.replace("/dashboard");
+            // If there's an error, handle it by throwing up a bootstrap alert
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
     }
 
     function loginUser(user) {
@@ -62,9 +97,5 @@ $(document).ready(function() {
     }
     
     
-    function handleLoginErr(err) {
-        $("#alert .msg").text(err.responseJSON);
-        $("#alert").fadeIn(500);
-    }
 });
 

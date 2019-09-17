@@ -10,15 +10,32 @@ module.exports = function(app) {
             email: req.body.email,
             password: req.body.password
         }).then(function(dbUser) {
-            res.redirect(307, "/api/login");
             res.json(dbUser);
         });
     });
 
+    //Post request to confirm the user's password.
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
         res.json(req.user);
     });
 
+
+    //Route for creating Items.
+    app.post("/api/items", function(req, res) {
+        console.log(req.body);
+        console.log("request received");
+        db.Item.create({
+            title: req.body.title,
+            body: req.body.body,
+            image: req.body.image,
+            UserId: req.user.id
+        }).then(function(dbItem) {
+            res.json(dbItem);
+        });
+    });
+
+
+    // You can confirm the user information is correct and the user is logged in by going to this route.
     app.get("/api/user_data", function(req, res) {
         if (!req.user) {
         // The user is not logged in, send back an empty object

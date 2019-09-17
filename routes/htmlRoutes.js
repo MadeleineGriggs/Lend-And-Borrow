@@ -1,5 +1,5 @@
 var db = require("../models");
-// eslint-disable-next-line no-unused-vars
+
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
@@ -15,7 +15,11 @@ module.exports = function(app) {
 
     app.get("/dashboard", function(req, res) {
         if(req.isAuthenticated()){
-            res.render("dashboard");
+            db.User.findOne({where: {username: req.user.username}}).then(function(dbUser) {
+                res.render("dashboard", {
+                    user: dbUser
+                });
+            });
         } else {
             res.render("index");
         }
