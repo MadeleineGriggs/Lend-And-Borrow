@@ -6,6 +6,10 @@ $(document).ready(function() {
     var $passwordSignup = $("#password-signup");
     var $signupSubmit = $(".signup");
 
+    var $usernameLogin = $("#username-signup");
+    var $passwordLogin = $("#password-login");
+    var $loginSubmit = $(".login");
+
 
     $signupSubmit.on("submit", function(event) {
         event.preventDefault();
@@ -23,6 +27,17 @@ $(document).ready(function() {
         $passwordSignup.val("");
     });
 
+    $loginSubmit.on("submit", function(event) {
+        event.preventDefault();
+        var userData = {
+            username: $usernameLogin.val().trim(),
+            password: $passwordLogin.val()
+        };
+
+        //Need to check if all data is available.
+        loginUser(userData);
+    });
+
     // Does a post to the signup route. If successful, we are redirected to the dashboard page
     // Otherwise we log any errors
     function signUpUser(user) {
@@ -35,6 +50,18 @@ $(document).ready(function() {
             .catch(handleLoginErr);
     }
 
+    function loginUser(user) {
+        $.post("/api/login", user)
+            .then(function() {
+                window.location.replace("/dashboard");
+            // If there's an error, log the error
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+    }
+    
+    
     function handleLoginErr(err) {
         $("#alert .msg").text(err.responseJSON);
         $("#alert").fadeIn(500);
