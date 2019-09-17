@@ -1,7 +1,53 @@
+{{!-- Feel free to delete this brs... --}}
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container">
-  <div class="jumbotron mt-4">
-    <h1 class="display-4 text-center">Dashboard
-    </h1>
-    <a href="/">← Back To Home</a>
+  <div class="row">
+    <div class="col-10">
+      <form class="newItem">
+        <div class="form-group">
+          <label for="newItemTitle">Item Title</label>
+          <input type="text" class="form-control" id="newItemTitle" placeholder="A New Item...">
+        </div>
+        <div class="form-group">
+          <label for="newItemImgLink">Item Image Link</label>
+          <input type="text" class="form-control" id="newItemImgLink" placeholder="Image URL here...">
+        </div>
+          <div class="form-group">
+          <label for="newItemDesc">Item Description</label>
+          <input type="text" class="form-control" id="newItemDesc" placeholder="Give a description of your item...">
+        </div>
+          <button type="submit" class="btn btn-default" id="newItem-submit">Login</button>
+      </form>
+    </div>
   </div>
 </div>
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-8 offset-2">
+      <div class="card mt-4">
+        <div class="card-body">
+          <h5 class="card-title">Your Items</h5>
+          <p>
+            <strong>ID</strong>: {{user.username}}</p>
+          <p>
+          <p>
+            <strong>Text</strong>: {{example.text}}</p>
+          <p>
+            <strong>Description:</strong> {{example.description}}</p>
+            <a href="/">← Back To Home</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

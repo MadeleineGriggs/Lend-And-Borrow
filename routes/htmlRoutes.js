@@ -1,5 +1,7 @@
 var db = require("../models");
-// var isAuthenticated = require("../config/middleware/isAuthenticated");
+
+// eslint-disable-next-line no-unused-vars
+var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
     // Load index page
@@ -13,17 +15,19 @@ module.exports = function(app) {
     });
 
     app.get("/dashboard", function(req, res) {
-        res.render("dashboard");
+        if(req.isAuthenticated()){
+            db.User.findOne({where: {username: req.user.username}}).then(function(dbUser) {
+                res.render("dashboard", {
+                    user: dbUser
+                });
+            });
+        } else {
+            res.render("index");
+        }
     });
   
-    // Load example page and pass in an example by id
-    app.get("/example/:id", function(req, res) {
-        db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-            res.render("example", {
-                example: dbExample
-            });
-        });
-    });
+
+    app.get("");
   
     // Render 404 page for any unmatched routes
     app.get("*", function(req, res) {
