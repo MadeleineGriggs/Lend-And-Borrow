@@ -6,7 +6,7 @@ $(document).ready(function() {
     var $passwordSignup = $("#password-signup");
     var $signupSubmit = $(".signup");
 
-    var $usernameLogin = $("#username-signup");
+    var $usernameLogin = $("#username-login");
     var $passwordLogin = $("#password-login");
     var $loginSubmit = $(".login");
 
