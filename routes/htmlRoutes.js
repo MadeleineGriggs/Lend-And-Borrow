@@ -13,17 +13,10 @@ module.exports = function(app) {
 
     });
 
-    // db.Item.findAll({
-    //     order: [["createdAt", "DESC"]]
 
-    // }).then(function(dbItems) {
-    //     var newItems = {
-    //         items: dbItems
-    //     };
-
-    //     res.render("index", newItems);
-
-    // });
+    app.get("/mainsearch", function(req, res) {
+        res.render("mainsearch");
+    });
 
 
     app.get("/dashboard", function(req, res) {
@@ -52,7 +45,18 @@ module.exports = function(app) {
         }
     });
 
+<<<<<<< HEAD
   
+=======
+
+
+    app.get("/select", function(req, res) {
+        res.render("select");
+    });
+
+
+
+>>>>>>> ee7480670f749fa3173f2af6c58b7fdcfe352e0b
 
     app.get("/mainsearch", function(req, res) {
         res.render("mainsearch");
@@ -62,9 +66,9 @@ module.exports = function(app) {
 
     app.get("");
   
+
     // Render 404 page for any unmatched routes
     app.get("*", function(req, res) {
         res.render("404");
     });
 };
-  
