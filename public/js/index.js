@@ -82,9 +82,9 @@ $(document).ready(function() {
             });
     }
 
-    function rentItem(itemId) {
-        $.put("`api/item/${itemId}`")
-    }
+    // function rentItem(itemId) {
+    //     $.put(`api/item/${itemId}`)
+    // }
 
 
     function addItem(item) {

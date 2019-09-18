@@ -43,9 +43,9 @@ module.exports = function(app) {
     });
 
 
-    app.put("api/item/:id", function (req, res) {
+    // app.put("api/item/:id", function (req, res) {
 
-    });
+    // });
 
     //Route for creating Items.
     app.post("/api/items", function(req, res) {

@@ -14,9 +14,7 @@ module.exports = function(app) {
             res.render("mainsearch", {
                 items: dbItems
             });
-        })
-
-
+        });
     });
 
 
@@ -27,9 +25,7 @@ module.exports = function(app) {
             res.render("index", {
                 items: dbItems
             });
-        })
-
-
+        });
     });
 
 
