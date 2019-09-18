@@ -14,6 +14,10 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/mainsearch", function(req, res) {
+        res.render("mainsearch");
+    });
+
     app.get("/dashboard", function(req, res) {
         if(req.isAuthenticated()){
             db.User.findOne({where: {username: req.user.username}}).then(function(dbUser) {
@@ -25,7 +29,13 @@ module.exports = function(app) {
             res.render("index");
         }
     });
-  
+
+
+    app.get("/select", function(req, res) {
+        res.render("select");
+    });
+
+
 
     app.get("/mainsearch", function(req, res) {
         res.render("mainsearch");
@@ -35,9 +45,9 @@ module.exports = function(app) {
 
     app.get("");
   
+
     // Render 404 page for any unmatched routes
     app.get("*", function(req, res) {
         res.render("404");
     });
 };
-  
