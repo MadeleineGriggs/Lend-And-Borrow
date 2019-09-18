@@ -7,16 +7,35 @@ module.exports = function(app) {
 
 
 
+    app.get("/search", function(req, res) {
+        db.Item.findAll({
+            order: [["createdAt", "DESC"]]
+        }).then(function(dbItems){
+            res.render("mainsearch", {
+                items: dbItems
+            });
+        })
+
+
+    });
+
+
     app.get("/", function(req, res) {
+        db.Item.findAll({
+            order: [["createdAt", "DESC"]]
+        }).then(function(dbItems){
+            res.render("index", {
+                items: dbItems
+            });
+        })
 
-        res.render("index");
 
     });
 
 
-    app.get("/mainsearch", function(req, res) {
-        res.render("mainsearch");
-    });
+    // app.get("/mainsearch", function(req, res) {
+    //     res.render("mainsearch");
+    // });
 
 
     app.get("/dashboard", function(req, res) {

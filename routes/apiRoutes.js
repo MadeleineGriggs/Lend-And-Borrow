@@ -40,18 +40,11 @@ module.exports = function(app) {
 
             });
         }
+    });
 
 
-        // if(req.isAuthenticated()) {
-        //     db.User.findAll(
-        //         {
-        //             where: {Id: req.user.id},
-        //             include: [{model: db.Item}]
-        //         }
-        //     ).then(function(user) {
-        //         res.json(user);
-        //     });
-        // }
+    app.put("api/item/:id", function (req, res) {
+
     });
 
     //Route for creating Items.
@@ -82,18 +75,5 @@ module.exports = function(app) {
         }
     });
 
-    app.get("/api/user_data", function(req, res) {
-        if (!req.user) {
-        // The user is not logged in, send back an empty object
-            res.json({});
-        } else {
-        // Otherwise send back the user's email and id
-            res.json({
-                username: req.user.username,
-                email: req.user.email,
-                id: req.user.id
-            });
-        }
-    });
 
 };

@@ -1,22 +1,16 @@
-{{!-- Feel free to delete this brs... --}}
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-<div class="container">
-  <h1>Welcome {{user.username}}</h1>
-  <p>User ID: {{user.id}}</p>
-  <p>User Email: {{user.email}}</p>
+
+<div class="container welcome-dashboard">
+  <h1 class="text-center">Welcome, {{user.username}}</h1>
+  <h2 class="text-center">Your Dashboard</h2>
+
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-10">
+
+<div class="container new-item-container">
+  <h3 class="text-center">Add a New Item to Lend</h3>
+  <div class="row justify-content-center">
+    <div class="col-8">
       <form class="newItem">
         <div class="form-group">
           <label for="newItemTitle">Item Title</label>
@@ -37,19 +31,26 @@
 </div>
 
 
-
+<h2 class="user-items-area">Your Items</h2>
 <div class="card-deck">
+  <div class="row">
   {{#each items}}
-  <div class="card">
-    <a  data-toggle="modal" ><img src="{{this.image}}" class="card-img-top" alt="a User provided image."></a>
-    <div class="card-body">
-      <h5 class="card-title">{{this.title}}</h5>
-      <p class="card-text">{{this.body}}</p>
-    </div>
-    <div class="card-footer">
-      <small class="text-muted">Last updated 3 mins ago</small>
+  <div class="col-4">
+    <div class="card">
+      <a  data-toggle="modal" ><img src="{{this.image}}" class="card-img-top" alt="a User provided image."></a>
+      <div class="card-body">
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">{{this.body}}</p>
+
+    {{#if available}}
+      <p class="available-text">This item is ready for lending again.</p>
+    {{else}}
+      <p class="unavailable-text">This item is currently being borrowed.</p>
+    {{/if}}
+      </div>
     </div>
   </div>
     {{/each}}
+    </div>
 </div>
 

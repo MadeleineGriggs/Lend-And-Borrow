@@ -15,6 +15,15 @@ $(document).ready(function() {
     var $newItemDesc = $("#newItemDesc");
     var $newItemSubmit = $(".newItem");
 
+    var $borrowClick = $(".btn-borrow");
+
+
+    $borrowClick.on("click", function(event) {
+        event.preventDefault();
+        var itemId = $(this).attr("id");
+        console.log(itemId);
+
+    });
 
     $signupSubmit.on("submit", function(event) {
         event.preventDefault();
@@ -71,6 +80,10 @@ $(document).ready(function() {
             .catch(function(err) {
                 console.log(err);
             });
+    }
+
+    function rentItem(itemId) {
+        $.put("`api/item/${itemId}`")
     }
 
 
