@@ -43,7 +43,6 @@ module.exports = function(app) {
     });
 
     //Route for updating the availability the item so it is not available to borrow.
-    
     app.post("/api/borrow", function (req, res) {
         db.Item.update({
             available: 0
@@ -53,6 +52,7 @@ module.exports = function(app) {
         });
     });
 
+    //Route for the owner of the item to mark that it has been returned.
     app.post("/api/lend", function (req, res) {
         db.Item.update({
             available: 1
