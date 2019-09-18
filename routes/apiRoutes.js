@@ -42,10 +42,25 @@ module.exports = function(app) {
         }
     });
 
+    //Route for updating the availability the item so it is not available to borrow.
+    app.post("/api/borrow", function (req, res) {
+        db.Item.update({
+            available: 0
+        }, {where: {id: req.body.id}}
+        ).then(function(item) {
+            res.json(item);
+        });
+    });
 
-    // app.put("api/item/:id", function (req, res) {
-
-    // });
+    //Route for the owner of the item to mark that it has been returned.
+    app.post("/api/lend", function (req, res) {
+        db.Item.update({
+            available: 1
+        }, {where: {id: req.body.id}}
+        ).then(function(item) {
+            res.json(item);
+        });
+    });
 
     //Route for creating Items.
     app.post("/api/items", function(req, res) {

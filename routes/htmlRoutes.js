@@ -8,13 +8,19 @@ module.exports = function(app) {
 
 
     app.get("/search", function(req, res) {
-        db.Item.findAll({
-            order: [["createdAt", "DESC"]]
-        }).then(function(dbItems){
-            res.render("mainsearch", {
-                items: dbItems
+        if(req.isAuthenticated()) {
+            db.Item.findAll({
+                order: [["createdAt", "DESC"]]
+            }).then(function(dbItems){
+                res.render("mainsearch", {
+                    items: dbItems
+                });
             });
-        });
+        } else {
+            //If the user isn't logged in, we dont' want them to access
+            //this page.
+            res.redirect("/");
+        }
     });
 
 
@@ -27,11 +33,6 @@ module.exports = function(app) {
             });
         });
     });
-
-
-    // app.get("/mainsearch", function(req, res) {
-    //     res.render("mainsearch");
-    // });
 
 
     app.get("/dashboard", function(req, res) {
@@ -57,9 +58,10 @@ module.exports = function(app) {
                 });
 
             });
+        } else {
+            res.redirect("/");
         }
     });
-
 
 
     app.get("/select", function(req, res) {

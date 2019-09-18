@@ -6,26 +6,33 @@
 
 </div>
 
+  <p class="text-center">
+  <button class="btn btn-default" type="button" data-toggle="collapse" data-target="#newItemCollapse" aria-expanded="false" aria-controls="newItemCollapse">
+    Add a New Item to Lend
+  </button>
+  </p>
 
-<div class="container new-item-container">
-  <h3 class="text-center">Add a New Item to Lend</h3>
-  <div class="row justify-content-center">
-    <div class="col-8">
-      <form class="newItem">
-        <div class="form-group">
-          <label for="newItemTitle">Item Title</label>
-          <input type="text" class="form-control" id="newItemTitle" placeholder="A New Item...">
-        </div>
-        <div class="form-group">
-          <label for="newItemImgLink">Item Image Link</label>
-          <input type="text" class="form-control" id="newItemImgLink" placeholder="Image URL here...">
-        </div>
+<div class="collapse" id="newItemCollapse">
+  <div class="container new-item-container">
+    <h3 class="text-center">Add a New Item to Lend</h3>
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <form class="newItem">
           <div class="form-group">
-          <label for="newItemDesc">Item Description</label>
-          <input type="text" class="form-control" id="newItemDesc" placeholder="Give a description of your item...">
-        </div>
-          <button type="submit" class="btn btn-default" id="newItem-submit">Add New Item</button>
-      </form>
+            <label for="newItemTitle">Item Title</label>
+            <input type="text" class="form-control" id="newItemTitle" placeholder="A New Item...">
+          </div>
+          <div class="form-group">
+            <label for="newItemImgLink">Item Image Link</label>
+            <input type="text" class="form-control" id="newItemImgLink" placeholder="Image URL here...">
+          </div>
+            <div class="form-group">
+            <label for="newItemDesc">Item Description</label>
+            <input type="text" class="form-control" id="newItemDesc" placeholder="Give a description of your item...">
+          </div>
+            <button type="submit" class="btn btn-default" id="newItem-submit">Add New Item</button>
+        </form>
+      </div>
     </div>
   </div>
 </div>
@@ -37,7 +44,9 @@
   {{#each items}}
   <div class="col-4">
     <div class="card">
-      <a  data-toggle="modal" ><img src="{{this.image}}" class="card-img-top" alt="a User provided image."></a>
+
+      <img src="{{this.image}}" class="card-img-top" alt="a User provided image.">
+
       <div class="card-body">
         <h5 class="card-title">{{this.title}}</h5>
         <p class="card-text">{{this.body}}</p>
@@ -45,7 +54,7 @@
     {{#if available}}
       <p class="available-text">This item is ready for lending again.</p>
     {{else}}
-      <p class="unavailable-text">This item is currently being borrowed.</p>
+     <button type="button" class="btn btn-default btn-return" id="{{this.id}}">Item Returned</button>
     {{/if}}
       </div>
     </div>
