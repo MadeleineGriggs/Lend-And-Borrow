@@ -32,8 +32,7 @@ module.exports = function(app) {
 
     //Route for creating Items.
     app.post("/api/items", function(req, res) {
-        console.log(req.body);
-        console.log("request received");
+
         db.Item.create({
             title: req.body.title,
             body: req.body.body,
@@ -61,7 +60,38 @@ module.exports = function(app) {
     });
 
 
-    app.post("/api/signup", function(req, res) {
+    // app.get("/dashboard", isAuthenticated, function(req, res) {
+    //     db.item.findAll({
+    //         where: {UserId: req.user.id},
+    //         order: [["createdAt", "DESC"]]
+
+    //     }).then(function(dbItems) {
+    //         var hbsObject = {
+    //             items: dbItems
+    //         };
+
+    //         res.render("dashboard", hbsObject);
+
+    //     });
+
+
+
+    app.get("/", function(req, res) {
+
+        db.Item.findAll({
+            order: [["createdAt", "DESC"]]
+
+        }).then(function(dbItems) {
+            var newItems = {
+                items: dbItems
+            };
+
+            res.render("index", newItems);
+
+        });
+    });
+
+    app.post("/", function(req, res) {
         db.User.create({
             username: req.body.username,
             email: req.body.email,

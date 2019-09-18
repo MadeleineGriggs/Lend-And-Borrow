@@ -57,7 +57,13 @@ module.exports = function(app) {
     // });
   
 
-    // app.get("");
+    app.get("/mainsearch", function(req, res) {
+        res.render("mainsearch");
+    });
+
+    
+
+    app.get("");
   
     // Render 404 page for any unmatched routes
     app.get("*", function(req, res) {
