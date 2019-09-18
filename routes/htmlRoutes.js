@@ -21,17 +21,10 @@ module.exports = function(app) {
 
     });
 
-    // db.Item.findAll({
-    //     order: [["createdAt", "DESC"]]
 
-    // }).then(function(dbItems) {
-    //     var newItems = {
-    //         items: dbItems
-    //     };
-
-    //     res.render("index", newItems);
-
-    // });
+    app.get("/mainsearch", function(req, res) {
+        res.render("mainsearch");
+    });
 
 
     app.get("/dashboard", function(req, res) {
@@ -60,29 +53,14 @@ module.exports = function(app) {
         }
     });
 
-    // app.get("/dashboard", function(req, res) {
-    //     if(req.isAuthenticated()){
-    //         db.Item.findOne({where: {UserId: req.user.id}}).then(function(dbUser) {
-    //             res.render("dashboard", {
-    //                 user: dbUser
-    //             });
-    //         });
-        
-    //         // db.Item.findOne({where: {userId: req.user.id}}).then(function(dbItems) {
 
-    //         //     res.render("dashboard", {
-    //         //         items: dbItems
-    //         //     });
 
-    //         // });
-    //         // });
+    app.get("/select", function(req, res) {
+        res.render("select");
+    });
 
-    //     } else {
-    //         res.render("index");
-    //     }
-    //     // res.render("dashboard");
-    // });
-  
+
+
 
     app.get("/mainsearch", function(req, res) {
         res.render("mainsearch");
@@ -92,9 +70,9 @@ module.exports = function(app) {
 
     app.get("");
   
+
     // Render 404 page for any unmatched routes
     app.get("*", function(req, res) {
         res.render("404");
     });
 };
-  
