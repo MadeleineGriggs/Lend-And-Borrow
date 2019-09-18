@@ -45,9 +45,6 @@ module.exports = function(app) {
         }
     });
 
-<<<<<<< HEAD
-  
-=======
 
 
     app.get("/select", function(req, res) {
@@ -56,7 +53,6 @@ module.exports = function(app) {
 
 
 
->>>>>>> ee7480670f749fa3173f2af6c58b7fdcfe352e0b
 
     app.get("/mainsearch", function(req, res) {
         res.render("mainsearch");
