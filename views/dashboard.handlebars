@@ -7,6 +7,12 @@
 <br>
 <br>
 <br>
+
+<div class="container">
+  <h1>Welcome {{user.title}}</h1>
+  <p>User ID: {{user.id}}</p>
+  <p>User Email: {{user.body}}</p>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-10">
@@ -38,14 +44,18 @@
         <div class="card-body">
           <h5 class="card-title">Your Items</h5>
           <p>
-            <strong>ID</strong>: {{user.username}}</p>
+
+            <strong>ID</strong>: {{user.id}}</p>
+
           <p>
+            
           <p>
-          {{#each newItems}}
-            <strong>Text</strong>: {{example.text}}</p>
+
+            <strong>Text</strong>: </p>
           <p>
-            <strong>Description:</strong> {{example.description}}</p>
+            <strong>Description:</strong> </p>
             <a href="/">← Back To Home</a>
+
         </div>
       </div>
     </div>
