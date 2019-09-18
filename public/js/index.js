@@ -70,7 +70,7 @@ $(document).ready(function() {
         })
             .then(function() {
                 window.location.replace("/dashboard");
-            // If there's an error, handle it by throwing up a bootstrap alert
+
             })
             .catch(function(err) {
                 console.log(err);
@@ -82,7 +82,7 @@ $(document).ready(function() {
         $.post("/api/items", item)
             .then(function() {
                 window.location.replace("/dashboard");
-            // If there's an error, handle it by throwing up a bootstrap alert
+
             })
             .catch(function(err) {
                 console.log(err);
@@ -93,7 +93,7 @@ $(document).ready(function() {
         $.post("/api/login", user)
             .then(function() {
                 window.location.replace("/dashboard");
-            // If there's an error, log the error
+
             })
             .catch(function(err) {
                 console.log(err);

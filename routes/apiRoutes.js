@@ -30,9 +30,42 @@ module.exports = function(app) {
     });
 
 
+    // API route to check the users items.
+    app.get("/api/user_items", function(req, res) {
+        if(req.isAuthenticated()) {
+            db.User.findOne(
+                {
+                    where: {Id: req.user.id},
+                }
+            ).then(function(dbUser) {
+                db.Item.findAll({
+                    include: [db.User],
+                    where: {
+                        userID: req.user.id
+                    }
+                }).then(function (dbItems) {
+
+                    res.json(dbItems, dbUser);
+                });
+
+            });
+        }
+
+
+        // if(req.isAuthenticated()) {
+        //     db.User.findAll(
+        //         {
+        //             where: {Id: req.user.id},
+        //             include: [{model: db.Item}]
+        //         }
+        //     ).then(function(user) {
+        //         res.json(user);
+        //     });
+        // }
+    });
+
     //Route for creating Items.
     app.post("/api/items", function(req, res) {
-
         db.Item.create({
             title: req.body.title,
             body: req.body.body,
@@ -59,48 +92,18 @@ module.exports = function(app) {
         }
     });
 
-
-    // app.get("/dashboard", isAuthenticated, function(req, res) {
-    //     db.item.findAll({
-    //         where: {UserId: req.user.id},
-    //         order: [["createdAt", "DESC"]]
-
-    //     }).then(function(dbItems) {
-    //         var hbsObject = {
-    //             items: dbItems
-    //         };
-
-    //         res.render("dashboard", hbsObject);
-
-    //     });
-
-
-
-    app.get("/", function(req, res) {
-
-        db.Item.findAll({
-            order: [["createdAt", "DESC"]]
-
-        }).then(function(dbItems) {
-            var newItems = {
-                items: dbItems
-            };
-
-            res.render("index", newItems);
-
-        });
+    app.get("/api/user_data", function(req, res) {
+        if (!req.user) {
+        // The user is not logged in, send back an empty object
+            res.json({});
+        } else {
+        // Otherwise send back the user's email and id
+            res.json({
+                username: req.user.username,
+                email: req.user.email,
+                id: req.user.id
+            });
+        }
     });
 
-    app.post("/", function(req, res) {
-        db.User.create({
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password
-        }).then(function() {
-            res.redirect(307, "/dashboard");
-        }).catch(function(err) {
-            res.status(401).json(err);
-        });
-
-    });
 };
