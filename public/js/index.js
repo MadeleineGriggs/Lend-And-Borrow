@@ -16,13 +16,21 @@ $(document).ready(function() {
     var $newItemSubmit = $(".newItem");
 
     var $borrowClick = $(".btn-borrow");
+    var $returnClick = $(".btn-return");
 
 
     $borrowClick.on("click", function(event) {
         event.preventDefault();
         var itemId = $(this).attr("id");
         console.log(itemId);
+        rentItem(itemId);
+    });
 
+    $returnClick.on("click", function(event) {
+        event.preventDefault();
+        var itemId = $(this).attr("id");
+        console.log(itemId);
+        returnItem(itemId);
     });
 
     $signupSubmit.on("submit", function(event) {
@@ -82,9 +90,25 @@ $(document).ready(function() {
             });
     }
 
-    // function rentItem(itemId) {
-    //     $.put(`api/item/${itemId}`)
-    // }
+    function rentItem(itemId) {
+        $.post("/api/borrow", {id: itemId})
+            .then(function() {
+                window.location.replace("/search");
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+    }
+
+    function returnItem(itemId) {
+        $.post("/api/lend", {id: itemId})
+            .then(function() {
+                window.location.replace("/dashboard");
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+    }
 
 
     function addItem(item) {

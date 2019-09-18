@@ -6,7 +6,7 @@
                 <div class="row">
                     <div class="col-lg-8 offset-2" id="welcometext">
                         <h1 class="title">Lend &#038; Borrow</h1>
-                        <h4 class="text">welcome to the community ToolBox</h4>
+                        <h4 class="text">Welcome to the community toolbox</h4>
 
 
 
@@ -35,7 +35,7 @@
   {{#each items}}
   <div class="col-4">
     <div class="card">
-      <a  data-toggle="modal" ><img src="{{this.image}}" class="card-img-top" alt="a User provided image."></a>
+      <a data-toggle="modal" data-target="#loginModal"><img src="{{this.image}}" class="card-img-top" alt="a User provided image."></a>
       <div class="card-body">
         <h5 class="card-title">{{this.title}}</h5>
         <p class="card-text">{{this.body}}</p>
