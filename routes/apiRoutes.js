@@ -35,8 +35,8 @@ module.exports = function(app) {
                     }
                 }).then(function (dbItems) {
 
-                    res.json(dbItems);
-                })
+                    res.json(dbItems, dbUser);
+                });
 
             });
         }
