@@ -1,8 +1,30 @@
-    <body>
-     {{{body}}} 
+<br>
+<h1 class="search-title text-center">Items Available</h1>
+<br>
 
+<div class="card-deck">
+  <div class="row">
+  {{#each items}}
+  <div class="col-4">
+    <div class="card">
+      <a  data-toggle="modal" ><img src="{{this.image}}" class="card-img-top" alt="a User provided image."></a>
+      <div class="card-body">
+        <h5 class="card-title">{{this.title}}</h5>
+        <p class="card-text">{{this.body}}</p>
+   <p class="display-test-area"></p>
+{{#if available}}
+<button type="button" class="btn btn-default btn-borrow" id="{{this.id}}">Borrow Item</button>
+{{else}}
+<p>This item is currently being borrowed.</p>
+{{/if}}
+      </div>
+    </div>
+  </div>
+    {{/each}}
+    </div>
+</div>
        <!-- //Container that holds everything// -->
-  <div class="container">
+  {{!-- <div class="container">
     
  
    <div class="row">
@@ -14,18 +36,6 @@
    <a href="/select"><img class="pic" src="https://images.pexels.com/photos/164634/pexels-photo-164634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></a></div>
    <div class="col-md-3 col-sm-12">
    <h4>MUSIC</h4>
-<<<<<<< HEAD
-   <a href="#"><img class="pic" src="https://images.pexels.com/photos/65718/pexels-photo-65718.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" src=""></a></div>
-   <div id="first" class="col-md-3 col-sm-12">
-    <h4>PHOTOGRAPHY</h4>
-   <a href="#"><img class="pic" src="https://images.pexels.com/photos/1655271/pexels-photo-1655271.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></a></div>
-   <div id="first" class="col-md-3 col-sm-12">
-   <h4>SEWING</h4>
-   <a href="#"><img class="pic" src="https://images.pexels.com/photos/1232131/pexels-photo-1232131.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></a></div>
-   <div id="first" class="col-md-3 col-sm-12">
-   <h4>BOOKS</h4>
-   <a href="#"><img class="pic" src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></a></div>
-=======
    <a href="/select"><img class="pic" src="https://images.pexels.com/photos/65718/pexels-photo-65718.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" src=""></a></div>
    <div id="first" class="col-md-3 col-sm-12">
     <h4>PHOTOGRAPHY</h4>
@@ -36,9 +46,6 @@
    <div id="first" class="col-md-3 col-sm-12">
    <h4>BOOKS</h4>
    <a href="/select"><img class="pic" src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></a></div>
->>>>>>> dbf7978b610da4711ae8f461711410eb659079c1
-   </div>
-   </div>
+   </div> --}}
+   {{!-- </div> --}}
           
-
-     </body>
