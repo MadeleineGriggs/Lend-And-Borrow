@@ -20,6 +20,40 @@ module.exports = function(app) {
     });
 
 
+    // API route to check the users items.
+    app.get("/api/user_items", function(req, res) {
+        if(req.isAuthenticated()) {
+            db.User.findOne(
+                {
+                    where: {Id: req.user.id},
+                }
+            ).then(function(dbUser) {
+                db.Item.findAll({
+                    include: [db.User],
+                    where: {
+                        userID: req.user.id
+                    }
+                }).then(function (dbItems) {
+
+                 res.json(dbItems);
+                })
+
+            });
+        }
+
+
+        // if(req.isAuthenticated()) {
+        //     db.User.findAll(
+        //         {
+        //             where: {Id: req.user.id},
+        //             include: [{model: db.Item}]
+        //         }
+        //     ).then(function(user) {
+        //         res.json(user);
+        //     });
+        // }
+    });
+
     //Route for creating Items.
     app.post("/api/items", function(req, res) {
         db.Item.create({

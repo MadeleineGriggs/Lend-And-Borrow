@@ -35,27 +35,53 @@ module.exports = function(app) {
 
 
     app.get("/dashboard", function(req, res) {
-        if(req.isAuthenticated()){
-            db.Item.findOne({where: {UserId: req.user.id}}).then(function(dbUser) {
-                res.render("dashboard", {
-                    user: dbUser
-                });
+        if(req.isAuthenticated()) {
+            db.User.findOne(
+                {
+                    where: {Id: req.user.id},
+                }
+            ).then(function(dbUser) {
+                db.Item.findAll({
+                    include: [db.User],
+                    where: {
+                        userID: req.user.id
+                    }
+                }).then(function (dbItems) {
+
+                    res.render("dashboard", 
+                        {
+                            user: dbUser,
+                            items: dbItems
+                        }
+                    );
+                })
+
             });
-        
-            // db.Item.findOne({where: {userId: req.user.id}}).then(function(dbItems) {
-
-            //     res.render("dashboard", {
-            //         items: dbItems
-            //     });
-
-            // });
-            // });
-
-        } else {
-            res.render("index");
         }
-        // res.render("dashboard");
     });
+
+    // app.get("/dashboard", function(req, res) {
+    //     if(req.isAuthenticated()){
+    //         db.Item.findOne({where: {UserId: req.user.id}}).then(function(dbUser) {
+    //             res.render("dashboard", {
+    //                 user: dbUser
+    //             });
+    //         });
+        
+    //         // db.Item.findOne({where: {userId: req.user.id}}).then(function(dbItems) {
+
+    //         //     res.render("dashboard", {
+    //         //         items: dbItems
+    //         //     });
+
+    //         // });
+    //         // });
+
+    //     } else {
+    //         res.render("index");
+    //     }
+    //     // res.render("dashboard");
+    // });
   
 
     app.get("/mainsearch", function(req, res) {
