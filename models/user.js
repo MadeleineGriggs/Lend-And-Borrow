@@ -35,6 +35,10 @@ module.exports = function(sequelize, DataTypes) {
         User.hasMany(models.Item);
     };
 
+    User.associate = function(models) {
+        User.hasMany(models.Borrow);
+    };
+
     return User;
 };
 
