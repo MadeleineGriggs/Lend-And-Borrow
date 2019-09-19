@@ -34,6 +34,21 @@ module.exports = function(app) {
         });
     });
 
+    app.get("/borrowing/:borrowID", function(req, res) {
+        if(req.isAuthenticated()) {
+            db.User.findOne(
+                {
+                    where: {id: req.params.borrowID}
+                }
+            ).then(function(dbBorrower) {
+                res.render("select", 
+                    {
+                        borrower: dbBorrower
+                    }
+                );
+            });
+        }
+    });
 
     app.get("/dashboard", function(req, res) {
         if(req.isAuthenticated()) {

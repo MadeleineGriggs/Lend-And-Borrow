@@ -225,3 +225,17 @@
         .search-title {
             padding-top: 8rem;
         }
+
+        /* Borrower Information Area */
+        .borrower-container {
+            padding-top: 8rem;
+            margin-bottom: 25rem;
+        }
+        .borrower-title {
+            margin-bottom: 2rem;
+        }
+
+        .btn-dash {
+            margin-top: 4rem;
+            color: var(--cream);
+        }
