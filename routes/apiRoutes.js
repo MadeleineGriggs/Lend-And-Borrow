@@ -19,6 +19,10 @@ module.exports = function(app) {
         res.json(req.user);
     });
 
+    app.get("/logout", function(req, res){
+        req.logout();
+        res.redirect("/");
+    });
 
     // API route to check the users items.
     app.get("/api/user_items", function(req, res) {
