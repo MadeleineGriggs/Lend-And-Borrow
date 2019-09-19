@@ -7,15 +7,31 @@ module.exports = function(app) {
 
 
 
-    app.get("/", function(req, res) {
-
-        res.render("index");
-
+    app.get("/search", function(req, res) {
+        if(req.isAuthenticated()) {
+            db.Item.findAll({
+                order: [["createdAt", "DESC"]]
+            }).then(function(dbItems){
+                res.render("mainsearch", {
+                    items: dbItems
+                });
+            });
+        } else {
+            //If the user isn't logged in, we dont' want them to access
+            //this page.
+            res.redirect("/");
+        }
     });
 
 
-    app.get("/mainsearch", function(req, res) {
-        res.render("mainsearch");
+    app.get("/", function(req, res) {
+        db.Item.findAll({
+            order: [["createdAt", "DESC"]]
+        }).then(function(dbItems){
+            res.render("index", {
+                items: dbItems
+            });
+        });
     });
 
 
@@ -42,9 +58,10 @@ module.exports = function(app) {
                 });
 
             });
+        } else {
+            res.redirect("/");
         }
     });
-
 
 
     app.get("/select", function(req, res) {

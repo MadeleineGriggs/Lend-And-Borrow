@@ -50,18 +50,26 @@ module.exports = function(app) {
 
             });
         }
+    });
 
+    //Route for updating the availability the item so it is not available to borrow.
+    app.post("/api/borrow", function (req, res) {
+        db.Item.update({
+            available: 0
+        }, {where: {id: req.body.id}}
+        ).then(function(item) {
+            res.json(item);
+        });
+    });
 
-        // if(req.isAuthenticated()) {
-        //     db.User.findAll(
-        //         {
-        //             where: {Id: req.user.id},
-        //             include: [{model: db.Item}]
-        //         }
-        //     ).then(function(user) {
-        //         res.json(user);
-        //     });
-        // }
+    //Route for the owner of the item to mark that it has been returned.
+    app.post("/api/lend", function (req, res) {
+        db.Item.update({
+            available: 1
+        }, {where: {id: req.body.id}}
+        ).then(function(item) {
+            res.json(item);
+        });
     });
 
     //Route for creating Items.
@@ -92,18 +100,5 @@ module.exports = function(app) {
         }
     });
 
-    app.get("/api/user_data", function(req, res) {
-        if (!req.user) {
-        // The user is not logged in, send back an empty object
-            res.json({});
-        } else {
-        // Otherwise send back the user's email and id
-            res.json({
-                username: req.user.username,
-                email: req.user.email,
-                id: req.user.id
-            });
-        }
-    });
 
 };

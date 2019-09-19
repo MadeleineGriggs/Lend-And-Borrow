@@ -15,16 +15,25 @@
 <header>
 
   <nav class="navbar navbar-default navbar-fixed-top">
-            <a class="navbar-brand " href="# ">
-                <img src="../assets/logo.png" height="80 " alt="L&B logo ">
+            <a class="navbar-brand " href="/">
+                <img src="../assets/logo.png" alt="L&B logo ">
             </a>
-               <ul class="navbar-nav mr-auto">
+            <a class="nav-item" href="/">
+              Home
+            </a>
+            <a class="nav-item" href="/search/">
+              Browse
+            </a>
+            <a class="nav-item" href="/dashboard/">
+              Your Dashboard
+            </a>
+               {{!-- <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a href="/" class="btn btn-outline-primary" role="home">Home</a>
        <a href="/dashboard" class="btn btn-outline-primary" role="dashboard" >Dashboard</a>
        <a href="/mainsearch" class="btn btn-outline-primary" role="browse">Browse</a>
       </li>
- </ul>
+ </ul> --}}
      <form class="form-inline my-2 my-lg-0">   
      <button type="button" class="btn btn-login" data-toggle="modal" data-target="#loginModal">
      Log In | Register
@@ -103,10 +112,7 @@
 
   
       </div>
-      {{!-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> --}}
+
     </div>
   </div>
 </div>
