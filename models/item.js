@@ -28,6 +28,10 @@ module.exports = function(sequelize, DataTypes) {
             foreignKey: {allowNull: false}
 
         });
+        Item.belongsTo(models.User, {
+            as: "borrowingUser",
+            foreignKey: {allowNull: true}
+        });
     };
 
     return Item;

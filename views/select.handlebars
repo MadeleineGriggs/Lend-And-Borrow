@@ -1,18 +1,14 @@
 
+<div class="container borrower-container">
+	<h1 class="text-center borrower-title">Contact Information for This Borrower</h1>
+	<h2 class="text-center">Username: {{borrower.username}}</h2>
+	<h2 class="text-center">Email: {{borrower.email}}</h2>
 
-<ul>
-  {{#each wish}}
-  	<li>
-  	   <p>wish number {{this.id}}</p>
-       <p>WISH: {{this.wish}}</p>
-  	</li>
-  {{/each}}
-</ul>
+  	<p class="text-center">
+     <a class="btn btn-default btn-dash" href="/dashboard">
+     Back to Dashboard
+     </a>
+	</p>
 
-<form action="/" method="POST">
-	<textarea type="text" name="wish"></textarea>
+</div>
 
-	<button type="submit">Submit</button>
-</form>
-
-{{!-- //just place holder// --}}

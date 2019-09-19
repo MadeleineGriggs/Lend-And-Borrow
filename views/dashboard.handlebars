@@ -53,7 +53,11 @@
 
     {{#if available}}
       <p class="available-text">This item is ready for lending again.</p>
+
     {{else}}
+      <button type="button" class="btn btn-default btn-contact" data-borrower="{{this.borrowingUserId}}">Contact Borrower</button>
+          <br>
+          <br>
      <button type="button" class="btn btn-default btn-return" id="{{this.id}}">Item Returned</button>
     {{/if}}
       </div>

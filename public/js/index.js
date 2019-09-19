@@ -20,6 +20,16 @@ $(document).ready(function() {
 
     var $logoutClick = $("#btn-logout");
 
+    var $contactBorrowerBtn = $(".btn-contact");
+
+    $contactBorrowerBtn.on("click", function(event) {
+        event.preventDefault();
+
+        var borrowerID = $(this).attr("data-borrower");
+        console.log(borrowerID);
+        getBorrowingUser(borrowerID);
+    });
+
     $logoutClick.on("click", function(event) {
         event.preventDefault();
         logoutUser();
@@ -90,6 +100,10 @@ $(document).ready(function() {
             .catch(function(err) {
                 console.log(err);
             });
+    }
+
+    function getBorrowingUser(borrowerID) {
+        window.location.replace("/borrowing/" + borrowerID);
     }
 
     //Logs user out of their passport session.
