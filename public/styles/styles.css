@@ -1,6 +1,7 @@
           :root {
              --charcoal: #0B0B0C;
              --tweeter-blue: rgb(74, 121, 248);
+             --taupe: #9b9591;
              --dark-taupe: #78736F;
              --cream: #EBECE4;
              --dark-cream: #e6e6e3;
@@ -152,6 +153,13 @@
              width: 100%;
              padding-left: 25px;
              padding-right: 20px;
+         }
+
+         #btn-logout {
+            background-color: var(--cream);
+            border: 1px solid var(--taupe);
+            color: var(--dark-taupe);
+            
          }
     
          

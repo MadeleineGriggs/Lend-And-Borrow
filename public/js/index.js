@@ -18,6 +18,13 @@ $(document).ready(function() {
     var $borrowClick = $(".btn-borrow");
     var $returnClick = $(".btn-return");
 
+    var $logoutClick = $("#btn-logout");
+
+    $logoutClick.on("click", function(event) {
+        event.preventDefault();
+        logoutUser();
+    });
+
 
     $borrowClick.on("click", function(event) {
         event.preventDefault();
@@ -40,9 +47,7 @@ $(document).ready(function() {
             email: $emailSignup.val().trim(),
             password: $passwordSignup.val()
         };
-
         //Need to check if all data is available.
-
         signUpUser(userData);
         $usernameSignup.val("");
         $emailSignup.val("");
@@ -55,7 +60,6 @@ $(document).ready(function() {
             username: $usernameLogin.val().trim(),
             password: $passwordLogin.val()
         };
-
         //Need to check if all data is available.
         loginUser(userData);
     });
@@ -68,9 +72,7 @@ $(document).ready(function() {
             body: $newItemDesc.val().trim(),
             image: $newItemImgLink.val().trim()
         };
-
         //Need to check if all data is available.
-
         addItem(itemData);
         $newItemTitle.val("");
         $newItemDesc.val("");
@@ -90,6 +92,19 @@ $(document).ready(function() {
             });
     }
 
+    //Logs user out of their passport session.
+    function logoutUser() {
+        $.get("/logout")
+            .then(function() {
+                window.location.replace("/");
+
+            })
+            .catch(function(err) {
+                console.log(err);
+            });
+    }
+
+    //Changes availability of an item by it's ID. (ie. renting.)
     function rentItem(itemId) {
         $.post("/api/borrow", {id: itemId})
             .then(function() {
@@ -100,6 +115,7 @@ $(document).ready(function() {
             });
     }
 
+    //Makes a rented item available to rent again (ie. it's been returned.)
     function returnItem(itemId) {
         $.post("/api/lend", {id: itemId})
             .then(function() {
