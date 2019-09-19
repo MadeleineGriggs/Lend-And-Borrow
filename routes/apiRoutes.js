@@ -14,15 +14,15 @@ module.exports = function(app) {
         });
     });
 
-    app.post("/api/items", function(req, res) {
-        db.item.create({
-            title: req.body.title,
-            body: req.body.body,
-            image: req.body.image
-        }).then(function(dbItem) {
-            res.json(dbItem);
-        });
-    });
+    // app.post("/api/items", function(req, res) {
+    //     db.Item.create({
+    //         title: req.body.title,
+    //         body: req.body.body,
+    //         image: req.body.image
+    //     }).then(function(dbItem) {
+    //         res.json(dbItem);
+    //     });
+    // });
 
     //Post request to confirm the user's password.
     app.post("/api/login", passport.authenticate("local"), function(req, res) {
