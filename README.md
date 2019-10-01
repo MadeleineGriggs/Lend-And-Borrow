@@ -3,7 +3,18 @@
 
 ## About This Project
 
-The goal of this app was to create an app that logs the names of burgers using MySQL, Express, Handlebars and a custom ORM. The app allows users to input the names of burgers they would like to eat, which will display on the left side of the page. If the user clicks the 'devour it' button, the burger is transfered to the 'eaten' list.
+The requirement for this project was to build a site which used the following technologies: 
+* Use a Node and Express Web Server
+* Be backed by a MySQL Database an ORM
+* Have both GET and POST routes for retrieving and adding new data
+* Be deployed using Heroku
+* Utilize at least one new library, package, or technology that we haven’t discussed
+* Have a polished frontend / UI
+* Have folder structure that meets MVC Paradigm
+
+## Authors
+
+Angela Jane Leung, Mouna Ait, Madeleine Griggs, Chen Jie Zhu.
 
 ## Demo
 
